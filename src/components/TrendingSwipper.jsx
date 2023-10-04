@@ -60,6 +60,7 @@ export default function App() {
 
   return (
     <>
+      <h3 className="text-2xl font-bold mt-4 p-0">Trending</h3>
       <Swiper
         slidesPerView={itemsPerviw}
         spaceBetween={30}

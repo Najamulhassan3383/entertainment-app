@@ -13,7 +13,7 @@ function Card({ title, year, category, rating, img }) {
 
   return (
     <div
-      className="flex flex-col justify-between h-full bg-darkBluen group relative "
+      className="flex flex-col justify-between h-60 bg-darkBluen group relative "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
