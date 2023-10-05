@@ -1,23 +1,21 @@
-import React, { useState } from "react";
-import movie1 from "../assets/thumbnails/112/regular/medium.jpg";
-import logo from "../assets/icon-category-movie.svg";
 import BookmarkEmpty from "../assets/icon-bookmark-empty.svg";
-import BookmarkFilled from "../assets/icon-bookmark-full.svg";
+
 import playButton from "../assets/icon-play.svg";
 import moviesLogo from "../assets/icon-category-movie.svg";
 import tvShowsLogo from "../assets/icon-category-tv-series.svg";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function Card({ title, year, category, rating, img }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="flex flex-col justify-between h-60 bg-darkBluen group relative "
+      className="flex flex-col shrink justify-between h-60 bg-darkBluen group relative "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="text-white max-w-[250px] min-h-[180px] relative rounded-xl overflow-hidden">
+      <div className="text-white w-[240px] h-[170]  relative rounded-xl overflow-hidden">
         <img className="w-full h-full" src={img} alt="thumbnail" />
 
         <div className="absolute top-4 right-4 z-10 flex items-center justify-center h-10 w-10 rounded-full bg-black opacity-50 hover:bg-white group">

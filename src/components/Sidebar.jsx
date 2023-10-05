@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div className="absolute bg-[#161d2f] top-12 rounded-xl left-12 h-5/6 w-20  flex flex-col items-center justify-between bg-white border-r border-gray-200 ">
+    <div className="absolute bg-semiDarkBlue top-12 rounded-xl left-0 h-5/6 w-20  flex flex-col items-center justify-between bg-white border-r border-gray-200 md:left-12">
       <NavLink to="/">
         <SideBarIcon icon={logo} text="Home" />
       </NavLink>
@@ -24,7 +24,7 @@ function Sidebar() {
         </NavLink>
       </div>
       <div>
-        <SideBarIcon icon={avatar} text="Avatar" />
+        <SideBarIcon avatar={true} icon={avatar} text="Avatar" />
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <>
-      <h3 className="text-2xl font-bold mt-4 p-0">Trending</h3>
+      <h3 className="text-2xl font-bold mt-4 p-0 mr-4">Trending</h3>
       <Swiper
         slidesPerView={itemsPerView}
         spaceBetween={30}

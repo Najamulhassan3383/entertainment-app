@@ -9,7 +9,7 @@ function Home() {
       <div className="mt-0">
         <TrendingSwipper />
       </div>
-      <div className="mt-10">
+      <div className="mt-10 mr-5">
         <HeroSection />
       </div>
     </>

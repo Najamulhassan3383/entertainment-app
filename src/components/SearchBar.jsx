@@ -3,7 +3,7 @@ import search from "../assets/icon-search.svg";
 
 function SearchBar() {
   return (
-    <div className="flex items-center justify-between w-full h-14 bg-transparent rounded-lg">
+    <div className="flex items-center  justify-between w-full h-14 bg-transparent rounded-lg md:-mr-4">
       <div className="flex items-center justify-center w-14 h-14">
         <SideBarIcon icon={search} />
       </div>
