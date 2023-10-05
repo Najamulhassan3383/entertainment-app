@@ -1,68 +1,47 @@
-// Import Swiper React components
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import TrendingSwipperCard from "./TrendingSwipperCard";
-// import IconMovie from "../assets/icon-category-movie.svg";
-// import IconTv from "../assets/icon-category-tv.svg";
-import movie1 from "../assets/thumbnails/112/regular/large.jpg";
-import movie2 from "../assets/thumbnails/asia-in-24-days/regular/large.jpg";
 import data from "../assets/local-data/data.json";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./Styles.css";
 
-// [
-//   { "id" : 1,
-//     "title": "Beyond Earth",
-//     "thumbnail": {
-//       "trending": {
-//         "small": "./assets/thumbnails/beyond-earth/trending/small.jpg",
-//         "large": "./assets/thumbnails/beyond-earth/trending/large.jpg"
-//       },
-//       "regular": {
-//         "small": "./assets/thumbnails/beyond-earth/regular/small.jpg",
-//         "medium": "./assets/thumbnails/beyond-earth/regular/medium.jpg",
-//         "large": "./assets/thumbnails/beyond-earth/regular/large.jpg"
-//       }
-//     },
-//     "year": 2019,
-//     "category": "Movie",
-//     "rating": "PG",
-//     "isBookmarked": false,
-//     "isTrending": true
-//   }]
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useEffect, useState } from "react";
-
 export default function App() {
-  const [itemsPerviw, setItemsPerview] = useState("3");
-  const maxWidth = window.innerWidth;
-  const TrendingMovies = data.filter((movie) => movie.isTrending === true);
+  const [maxWidth, setMaxWidth] = useState(window.innerWidth);
+  const [itemsPerView, setItemsPerView] = useState(3);
 
-  //   const icons = {
-  //     movie: IconMovie,
-  //     tv: IconTv,
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      setMaxWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }); // Empty dependency array ensures that this effect runs once after the initial render
+
   useEffect(() => {
     if (maxWidth <= 475) {
-      setItemsPerview("1");
+      setItemsPerView(1);
     } else if (maxWidth <= 768) {
-      setItemsPerview("1.5");
+      setItemsPerView(1);
     } else {
-      setItemsPerview("2.2");
+      setItemsPerView(2);
     }
-  }, [maxWidth]);
+  }, [maxWidth]); // Re-run the effect whenever maxWidth changes
+
+  const trendingMovies = data.filter((movie) => movie.isTrending === true);
 
   return (
     <>
       <h3 className="text-2xl font-bold mt-4 p-0">Trending</h3>
       <Swiper
-        slidesPerView={itemsPerviw}
+        slidesPerView={itemsPerView}
         spaceBetween={30}
         centeredSlides={false}
         autoplay={{
@@ -76,7 +55,7 @@ export default function App() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {TrendingMovies.map((movie) => (
+        {trendingMovies.map((movie) => (
           <SwiperSlide key={movie.id}>
             <TrendingSwipperCard
               movie={movie.thumbnail.regular.large}

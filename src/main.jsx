@@ -7,6 +7,7 @@ import Home from "./components/Home.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HeroSection from "./components/HeroSection.jsx";
 import MoviesPage from "./components/MoviesPage.jsx";
+import Series from "./components/Series.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <MoviesPage />,
+      },
+      {
+        path: "series",
+        element: <Series />,
       },
     ],
   },

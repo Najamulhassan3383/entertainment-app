@@ -1,9 +1,8 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar.jsx";
 import SearchBar from "./components/SearchBar";
-import TrendingSwipper from "./components/TrendingSwipper";
+// import TrendingSwipper from "./components/TrendingSwipper";
 import { Outlet } from "react-router-dom";
-import HeroSection from "./components/HeroSection";
 
 function App() {
   return (
